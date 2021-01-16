@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Person</title>
+</head>
+<body>
+    <p>
+        <span th:text="${person.getName()}">value</span>
+        <span th:text="${person.getSurname()}">value</span>
+    </p>
+    <p>
+        Email:
+        <span th:text="${person.getEmail()}">value</span>
+    </p>
+    <p>
+        <span>Id:</span>
+        <span th:text="${person.getId()}">value</span>
+    </p>
+
+    <div>
+        <a href="/people/new">Create person</a>
+    </div>
+</body>
+</html>

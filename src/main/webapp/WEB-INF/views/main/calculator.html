@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Calculator</title>
+</head>
+
+<body>
+
+    <form action="/calculator" id="calculator">
+        <label for="a">a:</label>
+        <input type="text" id="a" name="a">
+        <label for="b">b:</label>
+        <input type="text" id="b" name="b">
+        <input type="submit">
+    </form>
+
+    <div/>
+        <label>Select operation</label>
+        <select name="operation" id="operation" form="calculator">
+            <option value="1">plus</option>
+            <option value="2">minus</option>
+            <option value="3">multiply</option>
+            <option value="4">divide</option>
+        </select>
+        <span th:text="${result}">Result: </span>
+    </div>
+
+    <p><a href="/">Main</a>
+        <a href="/hello">Hello</a>
+        <a href="/calculator">Calculator</a></p>
+</body>
+
+</html>
