@@ -7,28 +7,31 @@
 
 <body>
 
-    <form action="/calculator" id="calculator">
+    <form method="post" th:action="@{/calculator}" id="calculator">
         <label for="a">a:</label>
-        <input type="text" id="a" name="a">
+        <input required type="text" th:name="a" id="a">
         <label for="b">b:</label>
-        <input type="text" id="b" name="b">
+        <input required type="text" th:name="b" id="b" >
         <input type="submit">
     </form>
 
     <div/>
         <label>Select operation</label>
-        <select name="operation" id="operation" form="calculator">
+        <select th:name="operation" id="operation" form="calculator">
             <option value="1">plus</option>
             <option value="2">minus</option>
             <option value="3">multiply</option>
             <option value="4">divide</option>
         </select>
-        <span th:text="${result}">Result: </span>
+        <br>
+        <H1 th:text="${result}">Result: </H1>
     </div>
 
-    <p><a href="/">Main</a>
+    <p>
+        <a href="/">Main</a>
         <a href="/hello">Hello</a>
-        <a href="/calculator">Calculator</a></p>
+        <a href="/calculator">Calculator</a>
+    </p>
 </body>
 
 </html>

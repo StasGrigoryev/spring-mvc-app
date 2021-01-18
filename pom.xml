@@ -98,6 +98,10 @@
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
           <version>3.2.2</version>
+          <configuration>
+            <warName>ROOT</warName>
+            <outputDirectory>/Users/stas/opt/apache-tomcat-9.0.41/webapps</outputDirectory>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
