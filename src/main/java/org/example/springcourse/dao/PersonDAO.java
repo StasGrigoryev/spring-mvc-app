@@ -9,7 +9,7 @@ import java.util.List;
 @Component
 public class PersonDAO {
     private List<Person> people;
-    private static int PEOPLE_COUNT = 0;
+    private static int PEOPLE_COUNT = 1;
 
     {
         people = new ArrayList<>();
@@ -32,5 +32,17 @@ public class PersonDAO {
     public void save(Person person) {
         person.setId(++PEOPLE_COUNT);
         people.add(person);
+    }
+
+    public void update(int id, Person updatedPerson) {
+        Person p = show(id);
+        p.setId(updatedPerson.getId());
+        p.setName(updatedPerson.getName());
+        p.setSurname(updatedPerson.getSurname());
+        p.setEmail(updatedPerson.getEmail());
+    }
+
+    public void delete(int id) {
+        people.removeIf(p -> p.getId() == id);
     }
 }

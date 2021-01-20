@@ -3,19 +3,29 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>Calculator</title>
+<!--    <link th:href="@{/css/style}" rel="stylesheet" />-->
+<!--    <link href="../css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />-->
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}"/>
+    <link th:href="@{https://fonts.gstatic.com}" rel="preconnect" />
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Open+Sans&display=swap}" rel="stylesheet" />
+
 </head>
 
 <body>
 
-    <form method="post" th:action="@{/calculator}" id="calculator">
-        <label for="a">a:</label>
-        <input required type="text" th:name="a" id="a">
-        <label for="b">b:</label>
-        <input required type="text" th:name="b" id="b" >
-        <input type="submit">
-    </form>
-
+    <div class="login-box">
+        <form method="post" th:action="@{/calculator}" id="calculator">
+            <div class="textbox">
+                <input required type="text" th:name="a" id="a">
+            </div>
+            <div class="textbox">
+                <input required type="text" th:name="b" id="b" >
+            </div>
+            <input class="btn" type="submit">
+        </form>
     <div/>
+
+    <div class="btn">
         <label>Select operation</label>
         <select th:name="operation" id="operation" form="calculator">
             <option value="1">plus</option>
@@ -27,11 +37,12 @@
         <H1 th:text="${result}">Result: </H1>
     </div>
 
-    <p>
+    <div class="refs">
         <a href="/">Main</a>
         <a href="/hello">Hello</a>
         <a href="/calculator">Calculator</a>
-    </p>
+    </div>
+
 </body>
 
 </html>

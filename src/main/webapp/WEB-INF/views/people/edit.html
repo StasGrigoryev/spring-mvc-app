@@ -2,10 +2,12 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Add person</title>
+    <title>Update person</title>
 </head>
-    <body>
-    <form th:method="POST" th:action="@{/people}" th:object="${person}">
+<body>
+    <form style="display: inline-block; padding: 5px;"
+          th:method="patch" th:action="@{/people/{id}(id=${person.getId()})}"
+          th:object="${person}">
 
         <div>
             <label for="name">First Name</label>
@@ -17,11 +19,10 @@
             <label for="email">Email</label>
             <input style="float: right;" type="text" th:field="*{email}" id="email"/>
             <br>
-            <input type="submit" value="Add Person"/>
-            <input style="float: right;" type="reset" value="Reset"/>
+            <input type="submit" value="Update"/>
+            <a th:href="@{/people/{id}(id=${person.getId()})}"> Back</a>
         </div>
 
     </form>
-
 </body>
 </html>
