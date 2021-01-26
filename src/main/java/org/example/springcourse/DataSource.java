@@ -11,10 +11,16 @@ public class DataSource {
 
     public static Connection getConnection() {
         try {
-            con = DriverManager.getConnection("org.postgresql://localhost:5432/people",
+            Class.forName("org.postgresql.Driver");
+            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/people",
                     "stas", "stas");
+            if (con != null) {
+                System.out.println("connection ok");
+            } else {
+                System.out.println("couldn't establish connection");
+            }
 
-        } catch (SQLException throwables) {
+        } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
         return con;
