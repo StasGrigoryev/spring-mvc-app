@@ -1,25 +1,38 @@
 package org.example.springcourse.models;
 
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Person {
     private int id;
+
+    @NotEmpty(message="Please enter name")
+    @Size(min=2, max=30, message="Name should be between 2 and 30 characters")
     private String name;
-    private String surname;
+
+    @Min(value=0, message="Age can't be negative (at least on this planet)")
+    private int age;
+
+    @NotEmpty(message="Please enter email")
+    @Email(message="Email is not valid")
     private String email;
 
-    public Person(int id, String name, String surname, String email) {
+    public Person(int id, String name, int age, String email) {
         this.id = id;
         this.name = name;
-        this.surname = surname;
+        this.age = age;
         this.email = email;
     }
 
-    public String getSurname() {
-        return surname;
+    public int getAge() {
+        return age;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getEmail() {

@@ -9,16 +9,19 @@
 
         <div>
             <label for="name">First Name</label>
-            <input style="float: right;" type="text" th:field="*{name}" id="name"/>
+            <input type="text" th:field="*{name}" id="name"/>
+            <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
             <br>
-            <label for="surname">Last Name</label>
-            <input style="float: right;" type="text" th:field="*{surname}" id="surname"/>
+            <label for="age">Age</label>
+            <input type="text" th:field="*{age}" id="age"/>
+            <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Error</div>
             <br>
             <label for="email">Email</label>
-            <input style="float: right;" type="text" th:field="*{email}" id="email"/>
+            <input type="text" th:field="*{email}" id="email"/>
+            <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error</div>
             <br>
             <input type="submit" value="Add Person"/>
-            <input style="float: right;" type="reset" value="Reset"/>
+            <input type="reset" value="Reset"/>
         </div>
 
     </form>
